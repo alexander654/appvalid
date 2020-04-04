@@ -1,7 +1,8 @@
-package com.alexander.appvalid
+package com.alexander.appvalid.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.alexander.appvalid.R
 
 class MainActivity : AppCompatActivity() {
 
