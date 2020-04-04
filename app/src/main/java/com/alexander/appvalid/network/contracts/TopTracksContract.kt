@@ -12,14 +12,15 @@ import retrofit2.http.Query
 interface TopTracksContract {
 
     @Headers("Content-Type: application/json;charset=utf-8", "Accept: application/json")
-    @GET("")
+    @GET("2.0/")
     fun getTopTracks(
         @Query("limit") limit: Long?,
         @Query("page") page: Long?,
         @Query("location") location: String?,
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
         @Query("method") method: String = Constants.METHOD_TOP_TRACKS,
-        @Query("country") country: String = Constants.DEFAULT_COUNTRY
+        @Query("country") country: String = Constants.DEFAULT_COUNTRY,
+        @Query("format") format: String = Constants.DEFAULT_FORMAT
     ): Single<Response<TopTracksResponse>>
 
 }

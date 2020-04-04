@@ -12,13 +12,14 @@ import retrofit2.http.Query
 interface TopArtistsContract {
 
     @Headers("Content-Type: application/json;charset=utf-8", "Accept: application/json")
-    @GET("")
+    @GET("2.0/")
     fun getTopArtists(
         @Query("limit") limit: Long?,
         @Query("page") page: Long?,
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
         @Query("method") method: String = Constants.METHOD_TOP_ARTISTS,
-        @Query("country") country: String = Constants.DEFAULT_COUNTRY
+        @Query("country") country: String = Constants.DEFAULT_COUNTRY,
+        @Query("format") format: String = Constants.DEFAULT_FORMAT
     ): Single<Response<TopArtistsResponse>>
 
 }

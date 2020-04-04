@@ -25,14 +25,14 @@ android {
         debug {
             buildConfigField 'String', 'HTTP_LOGGING_LEVEL', '"BODY"'
             buildConfigField 'String', 'API_KEY', '"829751643419a7128b7ada50de590067"'
-            buildConfigField 'String', 'API_BASE_URL', '"http://ws.audioscrobbler.com/2.0/"'
+            buildConfigField 'String', 'API_BASE_URL', '"http://ws.audioscrobbler.com/"'
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'HTTP_LOGGING_LEVEL', '"NONE"'
             buildConfigField 'String', 'API_KEY', '"829751643419a7128b7ada50de590067"'
-            buildConfigField 'String', 'API_BASE_URL', '"http://ws.audioscrobbler.com/2.0/"'
+            buildConfigField 'String', 'API_BASE_URL', '"http://ws.audioscrobbler.com/"'
         }
     }
 

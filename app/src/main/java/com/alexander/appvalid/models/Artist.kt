@@ -7,6 +7,6 @@ data class Artist(
     val listeners: Long = 0L,
     val mbid: String = "",
     val url: String = "",
-    val streamable: Streamable,
-    val image: List<Image>
+    val streamable: Long = 0L,
+    val image: List<Image> = ArrayList()
 ) : Serializable

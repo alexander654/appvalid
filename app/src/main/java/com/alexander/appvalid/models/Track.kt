@@ -10,7 +10,7 @@ data class Track(
     val mbid: String = "",
     val streamable: Streamable,
     val artist: Artist,
-    val image: List<Image>,
+    val image: List<Image> = ArrayList(),
     @SerializedName("@attr")
     val attributes: TrackAttributes
 ) : Serializable
