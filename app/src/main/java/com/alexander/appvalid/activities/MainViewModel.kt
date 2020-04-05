@@ -2,8 +2,12 @@ package com.alexander.appvalid.activities
 
 import androidx.lifecycle.ViewModel
 import com.alexander.appvalid.datasource.repository.ArtistsRepository
+import com.alexander.appvalid.datasource.repository.TracksRepository
 
-class MainViewModel(private val repository: ArtistsRepository) : ViewModel() {
+class MainViewModel(
+    private val repository: ArtistsRepository,
+    private val repositoryTracks: TracksRepository
+) : ViewModel() {
 
     val artistsResult
         get() = repository.getAllArtists().data
@@ -12,5 +16,15 @@ class MainViewModel(private val repository: ArtistsRepository) : ViewModel() {
 
     fun getArtists() {
         repository.getAllArtists()
+    }
+
+    val tracksResult
+        get() = repositoryTracks.getAllTracks().data
+
+    val trackErrors
+        get() = repositoryTracks.getAllTracks().errors
+
+    fun getTracks() {
+        repositoryTracks.getAllTracks()
     }
 }

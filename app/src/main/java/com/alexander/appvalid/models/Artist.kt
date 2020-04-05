@@ -8,12 +8,12 @@ import java.io.Serializable
 
 @Entity(tableName = Constants.TABLE_ARTISTS)
 data class Artist(
-    @PrimaryKey
     var name: String = "",
     var listeners: Long = 0L,
+    @PrimaryKey
     var mbid: String = "",
     var url: String = "",
     var streamable: Long = 0L,
     @Ignore
-    val image: List<Image> = ArrayList()
+    var image: List<Image> = ArrayList()
 ) : Serializable

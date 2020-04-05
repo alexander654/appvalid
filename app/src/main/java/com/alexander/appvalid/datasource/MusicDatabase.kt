@@ -5,9 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.alexander.appvalid.datasource.dao.ArtistsDao
+import com.alexander.appvalid.datasource.dao.TracksDao
 import com.alexander.appvalid.models.Artist
+import com.alexander.appvalid.models.Track
 
-@Database(entities = [Artist::class], version = 1, exportSchema = false)
+@Database(entities = [Artist::class, Track::class], version = 1, exportSchema = false)
 abstract class MusicDatabase : RoomDatabase() {
 
     companion object {
@@ -34,5 +36,7 @@ abstract class MusicDatabase : RoomDatabase() {
     }
 
     abstract fun artistDao(): ArtistsDao
+
+    abstract fun trackDao(): TracksDao
 
 }

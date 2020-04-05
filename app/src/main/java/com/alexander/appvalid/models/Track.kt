@@ -1,16 +1,44 @@
 package com.alexander.appvalid.models
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
+import com.alexander.appvalid.utils.Constants
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
+@Entity(
+    tableName = Constants.TABLE_TRACKS
+)
 data class Track(
-    val name: String = "",
-    val duration: Long = 0L,
-    val listeners: Long = 0L,
-    val mbid: String = "",
-    val streamable: Streamable,
-    val artist: Artist,
-    val image: List<Image> = ArrayList(),
+    var name: String,
+    var duration: Long,
+    var listeners: Long,
+    @PrimaryKey
+    var mbid: String,
+    @Ignore
+    @ColumnInfo(name = "stream_able")
+    var streamable: Streamable,
+    @Ignore
+    @ColumnInfo(name = "artist_db")
+    var artist: Artist,
+    @Ignore
+    @ColumnInfo(name = "image_db")
+    var image: List<Image>,
+    @Ignore
+    @ColumnInfo(name = "attributes_db")
     @SerializedName("@attr")
-    val attributes: TrackAttributes
-) : Serializable
+    var attributes: TrackAttributes
+) : Serializable {
+    constructor() : this(
+        "",
+        0L,
+        0L,
+        "",
+        Streamable(),
+        Artist(),
+        arrayListOf<Image>(),
+        TrackAttributes()
+    )
+}

@@ -5,6 +5,6 @@ import java.io.Serializable
 
 data class Image(
     @SerializedName("#text")
-    val text: String = "",
-    val size: String = ""
+    var text: String = "",
+    var size: String = ""
 ) : Serializable
