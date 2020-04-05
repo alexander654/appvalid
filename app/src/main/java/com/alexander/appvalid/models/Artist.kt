@@ -14,6 +14,5 @@ data class Artist(
     var mbid: String = "",
     var url: String = "",
     var streamable: Long = 0L,
-    @Ignore
     var image: List<Image> = ArrayList()
 ) : Serializable

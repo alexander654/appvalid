@@ -20,10 +20,8 @@ data class Track(
     @Ignore
     @ColumnInfo(name = "stream_able")
     var streamable: Streamable,
-    @Ignore
     @ColumnInfo(name = "artist_db")
     var artist: Artist,
-    @Ignore
     @ColumnInfo(name = "image_db")
     var image: List<Image>,
     @Ignore
