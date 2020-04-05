@@ -1,24 +1,45 @@
 package com.alexander.appvalid.activities
 
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.alexander.appvalid.R
-import com.alexander.appvalid.network.ServiceArtists
+import com.alexander.appvalid.adapters.TestAdapter
+import com.alexander.appvalid.databinding.ActivityMainBinding
+import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
+
+    private val adapter by inject<TestAdapter>()
+    private val viewModel by viewModel<MainViewModel>()
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        ServiceArtists().getArtists(
-            limit = 10,
-            page = 1,
-            onSuccess = { response ->
-                Log.d("RESPONSE", response.topArtists.topArtists.size.toString())
-            },
-            onError = { message ->
-                Log.d("ERROR", message)
-            })
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.lifecycleOwner = this
+        binding.rvTest.run {
+            setHasFixedSize(true)
+            itemAnimator = DefaultItemAnimator()
+            val manager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+            layoutManager = manager
+            adapter = this@MainActivity.adapter
+        }
+
+        viewModel.getArtists()
+        viewModel.artistsResult.observe(this, Observer { data ->
+            data?.let { adapter.submitList(it) }
+        })
+        viewModel.errors.observe(this, Observer { message ->
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        })
     }
 }
