@@ -18,7 +18,7 @@ repositorio, daos, base de datos y api, componentes que son responsables del tra
 -utils: aloja constants clase que mantiene las constantes del proyecto
 -base: clases para manejar instancia de la aplicacion, la inyeccion de dependencias, y utilidades necesarias para el procesamiento de datos.
 
-##Librerias usadas
+## Librerias usadas
 -AndroidX
 -Retrofit
 -RxJava-RxKotlin
