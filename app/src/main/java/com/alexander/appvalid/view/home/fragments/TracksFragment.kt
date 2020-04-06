@@ -1,5 +1,6 @@
 package com.alexander.appvalid.view.home.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.alexander.appvalid.R
 import com.alexander.appvalid.adapters.AdapterTracks
 import com.alexander.appvalid.databinding.FragmentTracksBinding
+import com.alexander.appvalid.utils.Constants
+import com.alexander.appvalid.view.detail.TrackActivity
 import com.alexander.appvalid.view.home.viewmodel.MainViewModel
 import org.koin.android.ext.android.inject
 
@@ -46,6 +49,12 @@ class TracksFragment : Fragment() {
                 LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
             layoutManager = manager
             adapter = this@TracksFragment.adapterTracks
+        }
+        adapterTracks.onItemClick = {
+            startActivity(
+                Intent(requireActivity(), TrackActivity::class.java)
+                    .putExtra(Constants.SELECTED_TRACK, it)
+            )
         }
     }
 

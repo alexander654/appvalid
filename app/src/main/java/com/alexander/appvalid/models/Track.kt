@@ -14,6 +14,7 @@ import java.io.Serializable
 data class Track(
     var name: String,
     var duration: Long,
+    var url: String,
     var listeners: Long,
     @PrimaryKey
     var mbid: String,
@@ -32,6 +33,7 @@ data class Track(
     constructor() : this(
         "",
         0L,
+        "",
         0L,
         "",
         Streamable(),

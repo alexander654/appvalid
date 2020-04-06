@@ -7,4 +7,5 @@
     <color name="white">#FFFFFF</color>
     <color name="textColorLabel">#000000</color>
     <color name="lightTextColorLabel">#505050</color>
+    <color name="textBackTransparent">#E1000000</color>
 </resources>

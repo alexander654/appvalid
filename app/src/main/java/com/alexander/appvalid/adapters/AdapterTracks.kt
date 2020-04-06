@@ -17,6 +17,8 @@ import java.util.*
 class AdapterTracks :
     PagedListAdapter<Track, AdapterTracks.ItemTrack>(TRACK_COMPARATOR) {
 
+    var onItemClick: ((track: Track) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemTrack {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemTrackBinding.inflate(inflater)
@@ -54,6 +56,9 @@ class AdapterTracks :
                     .apply(RequestOptions.bitmapTransform(RoundedCorners(14)))
                     .placeholder(R.drawable.ic_launcher_background)
                     .into(binding.ivArtist)
+            }
+            binding.btnArtist.setOnClickListener {
+                onItemClick?.invoke(track)
             }
         }
     }
