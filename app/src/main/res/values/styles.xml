@@ -6,6 +6,61 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:buttonStyle">@style/CustomButton</item>
+        <item name="android:textAppearance">@style/LabelTextAppearance</item>
+    </style>
+
+    <style name="CustomButton" type="@android:style/Widget.Button">
+        <item name="android:padding">5dp</item>
+        <item name="android:background">@drawable/button_custom_shape</item>
+        <item name="android:gravity">center_horizontal|center_vertical|center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="CustomButton.Tall" type="@android:style/Widget.Button">
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/button_custom_shape</item>
+        <item name="android:gravity">center_horizontal|center_vertical|center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="LabelTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/textColorLabel</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="LabelTextAppearance.White" parent="@android:style/TextAppearance">
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="LabelTextAppearance.Center" parent="LabelTextAppearance">
+        <item name="android:padding">2dp</item>
+        <item name="android:textColor">@color/textColorLabel</item>
+        <item name="android:gravity">center_horizontal|center_vertical|center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="LabelTextAppearance.Center.Light" parent="LabelTextAppearance">
+        <item name="android:textColor">@color/lightTextColorLabel</item>
+        <item name="android:gravity">start|center_vertical|center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
 </resources>

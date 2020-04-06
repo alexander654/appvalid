@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">appvalid</string>
+    <string name="default_image_description">*</string>
+    <string name="no_wifi">Something went wrong</string>
+    <string name="please_reconnect">Please check internet connection</string>
+    <string name="go_to_details">See details</string>
+    <string name="listeners_format">Listeners: %s</string>
+    <string name="listeners_format_number">Listeners: %d</string>
+    <string name="duration_format">Duration: %s</string>
+    <string name="artist_format">Artist: %s</string>
+    <string name="artists">artists</string>
+    <string name="songs">songs</string>
+    <string name="got_to_web">See in last.fm</string>
+    <string name="we_had_trouble">Sorry! We had trouble</string>
+
 </resources>
