@@ -1,8 +1,8 @@
 package com.alexander.appvalid.base
 
-import com.alexander.appvalid.activities.MainViewModel
-import com.alexander.appvalid.adapters.TestAdapter
-import com.alexander.appvalid.adapters.TestAdapterTracks
+import com.alexander.appvalid.view.home.viewmodel.MainViewModel
+import com.alexander.appvalid.adapters.ArtistsAdapter
+import com.alexander.appvalid.adapters.AdapterTracks
 import com.alexander.appvalid.datasource.MusicDatabase
 import com.alexander.appvalid.datasource.repository.ArtistsRepository
 import com.alexander.appvalid.datasource.repository.TracksRepository
@@ -52,15 +52,20 @@ val artistServiceModule: Module = module {
 }
 
 val adapterTest: Module = module {
-    single { TestAdapter() }
+    single { ArtistsAdapter() }
 }
 
 val adapterTracks: Module = module {
-    single { TestAdapterTracks() }
+    single { AdapterTracks() }
 }
 
 val viewModelMainModule: Module = module {
-    viewModel { MainViewModel(get(), get()) }
+    viewModel {
+        MainViewModel(
+            get(),
+            get()
+        )
+    }
 }
 
 val modules = listOf(

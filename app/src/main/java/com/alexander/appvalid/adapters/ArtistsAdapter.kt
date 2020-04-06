@@ -5,14 +5,20 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.alexander.appvalid.databinding.ItemTestBinding
+import com.alexander.appvalid.R
+import com.alexander.appvalid.databinding.ItemArtistBinding
 import com.alexander.appvalid.models.Artist
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 
-class TestAdapter : PagedListAdapter<Artist, TestAdapter.ItemTest>(ARTIST_COMPARATOR) {
+class ArtistsAdapter : PagedListAdapter<Artist, ArtistsAdapter.ItemTest>(ARTIST_COMPARATOR) {
+
+    var onItemClick: ((artist: Artist) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemTest {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemTestBinding.inflate(inflater)
+        val binding = ItemArtistBinding.inflate(inflater)
         return ItemTest(binding)
     }
 
@@ -32,10 +38,24 @@ class TestAdapter : PagedListAdapter<Artist, TestAdapter.ItemTest>(ARTIST_COMPAR
         }
     }
 
-    inner class ItemTest(private val binding: ItemTestBinding) :
+    inner class ItemTest(private val binding: ItemArtistBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(artist: Artist) {
             binding.artist = artist
+            artist.image.last().text.let {
+                Glide
+                    .with(itemView.context)
+                    .load(it)
+                    .override(500, 500)
+                    .centerCrop()
+                    .optionalCenterCrop()
+                    .apply(RequestOptions.bitmapTransform(RoundedCorners(14)))
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(binding.ivArtist)
+            }
+            binding.btnArtist.setOnClickListener {
+                onItemClick?.invoke(artist)
+            }
         }
     }
 }

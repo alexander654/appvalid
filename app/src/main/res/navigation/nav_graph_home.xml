@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_home"
+    app:startDestination="@id/artistsFragment">
+
+    <fragment
+        android:id="@+id/artistsFragment"
+        android:name="com.alexander.appvalid.view.home.fragments.ArtistsFragment"
+        android:label="ArtistsFragment" />
+    <fragment
+        android:id="@+id/tracksFragment"
+        android:name="com.alexander.appvalid.view.home.fragments.TracksFragment"
+        android:label="TracksFragment" />
+</navigation>

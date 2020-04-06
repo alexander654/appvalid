@@ -1,4 +1,4 @@
-package com.alexander.appvalid.activities
+package com.alexander.appvalid.view.home.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.alexander.appvalid.datasource.repository.ArtistsRepository
